@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #c5d9d0;
+            font-family: 'Amatic SC', cursive;
+            color: #333;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000; /* Projelerin altında olması için z-index ekledik */
+        }
+
+        nav a {
+            color: #eee;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        nav a:hover {
+            background-color: #c5d9d0;
+            color: #333;
+        }
+
+        section {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* Nav bar yüksekliği kadar aşağıda başlasın */
+        }
+
+        .project {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project img {
+            margin-right: 20px;
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #333;
+            display: none; /* Başlangıçta paragrafları gizle */
+        }
+
+        /*a {
+            color: #33f;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer; /* İmleci bir bağlantı gibi göster *
+        }*/
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="ProjectsPage.html">PROJECTS</a>
+        <a href="AboutMe.html">ABOUT ME</a>
+        <a href="HobiesPage.html">HOBIES</a>
+    </nav>
+
+    <section>
+        <div class="project">
+            <img src="project1.jpg" alt="Project 1 Image">
+            <div>
+                <h2>Project 1</h2>
+                <p>Short text about the project</p>
+                <a onclick="toggleVisibility('project1-desc')">Learn More</a>
+                <p id="project1-desc">This is a description of Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna ac lorem sodales bibendum.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="project2.jpg" alt="Project 2 Image">
+            <div>
+                <h2>Project 2</h2>
+                <p>Short text about the project</p>
+                <a onclick="toggleVisibility('project2-desc')">Learn More</a>
+                <p id="project2-desc">This is a description of Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna ac lorem sodales bibendum.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleVisibility(id) {
+            var paragraph = document.getElementById(id);
+            paragraph.style.display = (paragraph.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

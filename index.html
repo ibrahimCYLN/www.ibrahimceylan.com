@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Big+Shoulders+Inline+Display&family=Bungee+Outline&family=Raleway+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap" rel="stylesheet">
+    
+
+    <title>IBRAHIM CEYLAN</title>
+    <style>
+        body {
+            background: #eeeeee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            min-height: 100vh; /* Sayfanın tamamını kaplaması için */
+        }
+
+        #header {
+            width: 100%;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            font-family: 'Noto Serif Display', serif;
+        }
+        #content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table {
+            color: #333;
+            width: 30%;
+            text-align: center;
+            font-size: large;
+            /*font-family: 'Amatic SC', cursive;*/ /*genel yazi*/
+            transition: background-color 0.7s ease;
+            font-family: 'Bungee Shade', sans-serif;
+        }
+
+        table td:hover {
+            background-color: #c5d9d0;
+            font-weight: bold;
+            font-family: 'Bungee Shade', sans-serif;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 30%;
+            max-height: 30%;
+            box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5); /* X offset, Y offset, blur radius, color */
+        }
+        @media screen and (max-width: 600px) {
+            img {
+                max-width: 80%;
+                max-height: 80%;
+                order: -1; /* Resmi tabloların üstüne yerleştir */
+                margin-bottom: 20px; /* Tablolarla arasına boşluk bırak */
+            }
+
+            #content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            table {
+                width: 100%;
+            }
+            table tr {
+                margin-bottom: 20px; /* Satırlar arasında boşluk */
+            }
+        }
+
+
+        footer {
+            width: 100%;
+            background-color: #c5d9d0;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            font-family: 'Bungee Shade', sans-serif;
+        }
+        #downloadLink {
+            color: black; /* Metni siyah renkte göster */
+            text-decoration: underline; /* Altı çizgi ekleyebilirsiniz, isteğe bağlı */
+            cursor: pointer; /* Fare imlecini bir el imleci olarak göster */
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>İBRAHİM CEYLAN</h1>
+        <h3>EMBEDDED SYSTEM ENGINEER</h3>
+    </div>
+
+    <div id="content">
+        <table>
+            <tr>
+                <td onclick="window.location.href='AboutMe.html';">ABOUT ME</td>
+            </tr>
+            <tr>
+                <td onclick="window.location.href='ProjectsPage.html';">PROJECTS</td>
+            </tr>
+        </table>
+
+        <img src="source/image/vesikalik.jpg" alt="Orta Resim">
+
+        <table>
+            <tr>
+                <td onclick="window.location.href='HobiesPage.html';">HOBIES</td>
+            </tr>
+            <tr>
+                <td onclick="window.location.href='ContactPage.html';">CONTACT</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer id="downloadLink">DOWNLOAD CV</footer>
+    <script>
+        // Tıklama olayını dinle
+        document.getElementById('downloadLink').addEventListener('click', function() {
+            // İndirme bağlantısı oluştur
+            var downloadLink = document.createElement('a');
+            downloadLink.href = 'ibrahim_CEYLAN_CV.pdf'; // CV dosyasının yolu
+            downloadLink.download = 'ibrahim_CEYLAN_CV.pdf'; // İndirilen dosyanın adı
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        });
+    </script>
+
+</body>
+</html>
