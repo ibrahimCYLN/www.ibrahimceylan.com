@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOBBIES</title>
-    <style>
-        nav {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobilerim</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    #scrolling-box {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+      background-color: #c5d9d0;
+    }
+
+    .hobby-box {
+        margin-top: 60px;
+      margin-right: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .hobby-box:hover {
+      background-color: #eee;
+    }
+
+    #content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hobby-page {
+      display: none;
+    }
+
+    .hobby-page.active {
+      display: block;
+    }
+
+    .hobby-image {
+      max-width: 60%;
+      height: auto;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    nav {
             position: fixed;
             top: 0;
             width: 100%;
@@ -25,142 +72,113 @@
             background-color: #c5d9d0;
             color: #333;
         }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 10px;
-            background-color: #f2f2f2;
-        }
-
-        section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .hobi:hover {
-            transform: scale(1.05);
-        }
-
-        .hobi img {
-            width: 100%;
-            height: auto;
-        }
-        .hobi {
-            position: relative; /* Resmin üstüne yazıyı pozisyonlandırmak için */
-            width: 30%;
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
-}
-
-        .hobi p {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(3, 3, 3, 0.5); /* Beyaz bir arka plan ile yazının okunabilir olmasını sağlar */
-            padding: 10px;
-            display: none;
-             text-align: left;
-            z-index: 1; /* Yazıyı resmin üzerine getirmek için */
-            }
-
-        .hobi.open p {
-            display: block;
-}
-    </style>
+  </style>
 </head>
 <body>
     <nav>
         <a href="index.html">HOME</a>
         <a href="ProjectsPage.html">PROJECTS</a>
         <a href="AboutMe.html">ABOUT ME</a>
-        <a href="HobiesPage.html">HOBIES</a>
+        <a href="ContactPage.html">CONTACT</a>
     </nav>
-    <section>
-        <div class="hobi" onclick="toggleHobi(this)">
-            <h2>Radio Theatre</h2>
-            <img src="radyo.jpg" alt="Radio Theatre">
-            <p>radyo tiyatrosu dinleme hobim, beni zamanda bir yolculuğa çıkaran büyülü bir deneyimdir. 
-                Sesin gücüyle şekillenen bu sanat formu, karakterlerin duygularını ve hikayenin atmosferini hayal gücümle canlandırmama olanak tanır. 
-                O eski radyo yayınlarının nostaljik ses efektleri, müzik ve oyuncuların ses tonları, 
-                beni başka bir dünyaya taşır ve zamanın durduğu bir noktada kendimi bulurum. Karanlık bir odada, gözlerimi kapattığımda, 
-                hikayenin içine gizlenmiş gibi hissederim. Bu hobim, sadece eğlenceli değil, 
-                aynı zamanda yaratıcılığımı besleyen ve hayal gücümü genişleten bir etkileşimdir. 
-                Radyo tiyatrosu, sesin sihirli dünyasında kaybolmama ve farklı zamanlarda, 
-                mekanlarda maceraya atılmama olanak tanıyan özel bir bağ kurmama yardımcı oluyor.</p>
-        </div>
 
-        <div class="hobi" onclick="toggleHobi(this)">
-            <h2>Graphic Design</h2>
-            <img src="graphic.jpg" alt="Graphic Design">
-            <p>Grafik tasarım ve Photoshop, benim yaratıcı dünyama kapılar aralayan tutkulu bir hobidir. 
-                Renklerin, formların ve metinlerin bir araya gelerek etkileyici görsel iletişimler oluşturması, beni derin bir tatminle dolduruyor. 
-                Photoshop'un kapsamlı araçları sayesinde, hayal gücümü dijital bir tuval üzerinde serbest bırakma özgürlüğüne sahibim. Her proje, 
-                benim için bir sanat eseri haline gelirken, tasarladığım grafiklerde kendimi ifade etme ve izleyiciyle duygusal bir bağ kurma fırsatı buluyorum. Renk paletleri, 
-                tipografi seçimleri ve kompozisyon, her ayrıntının özenle düşünüldüğü bir süreci içeriyor. 
-                Bu hobim, sadece teknik becerilerimi geliştirmekle kalmıyor, 
-                aynı zamanda estetik anlayışımı derinleştirip beni sürekli olarak yeni tasarım trendleri ve yöntemleri keşfetmeye teşvik ediyor. 
-                Grafik tasarım ve Photoshop ile uğraşmak, 
-                benim için bir sanatın ve ifadenin sınırsız dünyasında kaybolma ve kendimi sürekli olarak yeniden keşfetme serüvenidir.</p>
-        </div>
+  <div id="scrolling-box">
+    <div class="hobby-box" onclick="showHobby('radio-theatre')">Radio Theatre</div>
+    <div class="hobby-box" onclick="showHobby('graphic-design')">Graphic Design</div>
+    <div class="hobby-box" onclick="showHobby('calisthenics')">Doing Calisthenics</div>
+    <div class="hobby-box" onclick="showHobby('sudoku')">Solve Sudoku</div>
+    <div class="hobby-box" onclick="showHobby('camping')">Camping</div>
+    <div class="hobby-box" onclick="showHobby('kalimba')">Playing the Kalimba</div>
+    <!-- İlgilendiğiniz diğer hobileri ekleyebilirsiniz -->
+  </div>
 
-        <div class="hobi" onclick="toggleHobi(this)">
-            <h2>Doing Calisthenics</h2>
-            <img src="chalisthenics.jpeg" alt="Doing Calisthenics">
-            <p> Vücut ağırlığıyla yapılan bu egzersizler, fiziksel gücümü artırmakla kalmayıp, 
-                aynı zamanda zihinsel dayanıklılığımı da geliştiriyor. 
-                Her antrenman, kendi bedenimle olan bağımı güçlendiriyor ve sınırlarımı zorlamama izin veriyor. 
-                Kalisteniks, sadece kasları değil, aynı zamanda denge, esneklik ve koordinasyonu da hedef alarak bütünlüklü bir fitness deneyimi sunuyor. 
-                Bu hobimde her yeni hareketi öğrenme süreci, sabır, disiplin ve kararlılık gerektirirken, bu özellikleri günlük yaşantıma da taşımama yardımcı oluyor. 
-                Kalisteniks, benim için sadece bedenimi güçlendiren bir egzersiz biçimi değil, 
-                aynı zamanda kendi sınırlarımı keşfetme ve aşma sürecinde beni motive eden bir yaşam felsefesidir.</p>
-        </div>
+  <div id="content">
+    <div id="radio-theatre" class="hobby-page">
+      <h2>Radio Theatre</h2>
+      <p>radyo tiyatrosu dinleme hobim, beni zamanda bir yolculuğa çıkaran büyülü bir deneyimdir. 
+        Sesin gücüyle şekillenen bu sanat formu, karakterlerin duygularını ve hikayenin atmosferini hayal gücümle canlandırmama olanak tanır. 
+        O eski radyo yayınlarının nostaljik ses efektleri, müzik ve oyuncuların ses tonları, 
+        beni başka bir dünyaya taşır ve zamanın durduğu bir noktada kendimi bulurum. Karanlık bir odada, gözlerimi kapattığımda, 
+        hikayenin içine gizlenmiş gibi hissederim. Bu hobim, sadece eğlenceli değil, 
+        aynı zamanda yaratıcılığımı besleyen ve hayal gücümü genişleten bir etkileşimdir. 
+        Radyo tiyatrosu, sesin sihirli dünyasında kaybolmama ve farklı zamanlarda, 
+        mekanlarda maceraya atılmama olanak tanıyan özel bir bağ kurmama yardımcı oluyor.</p>
+      <img class="hobby-image" src="source/image/radyo.jpg" alt="Radio Theatre Resmi">
+    </div>
 
-        <div class="hobi" onclick="toggleHobi(this)">
-            <h2>Solve Sudoku</h2>
-            <img src="sudoku.jpg" alt="Solve Sudoku">
-            <p>
-                Sudoku, zihinsel keskinliğimi artıran ve stresle baş etmeme yardımcı olan keyifli bir hobidir. 
-                Sayıları mantıklı bir şekilde yerleştirmek, hem problem çözme becerilerimi güçlendiriyor hem de odaklanmamı artırıyor. 
-                Ayrıca, bu oyun benim için bir tür meditasyon deneyimi, günlük hayatın karmaşasından uzaklaşma fırsatı sunuyor.</p>
-        </div>
+    <div id="graphic-design" class="hobby-page">
+      <h2>Graphic Design</h2>
+      <p>Grafik tasarım ve Photoshop, benim yaratıcı dünyama kapılar aralayan tutkulu bir hobidir. 
+        Renklerin, formların ve metinlerin bir araya gelerek etkileyici görsel iletişimler oluşturması, beni derin bir tatminle dolduruyor. 
+        Photoshop'un kapsamlı araçları sayesinde, hayal gücümü dijital bir tuval üzerinde serbest bırakma özgürlüğüne sahibim. Her proje, 
+        benim için bir sanat eseri haline gelirken, tasarladığım grafiklerde kendimi ifade etme ve izleyiciyle duygusal bir bağ kurma fırsatı buluyorum. Renk paletleri, 
+        tipografi seçimleri ve kompozisyon, her ayrıntının özenle düşünüldüğü bir süreci içeriyor. 
+        Bu hobim, sadece teknik becerilerimi geliştirmekle kalmıyor, 
+        aynı zamanda estetik anlayışımı derinleştirip beni sürekli olarak yeni tasarım trendleri ve yöntemleri keşfetmeye teşvik ediyor. 
+        Grafik tasarım ve Photoshop ile uğraşmak, 
+        benim için bir sanatın ve ifadenin sınırsız dünyasında kaybolma ve kendimi sürekli olarak yeniden keşfetme serüvenidir.</p>
+      <img class="hobby-image" src="source/image/graphic.jpg" alt="Graphic Design Resmi">
+    </div>
 
-        <div class="hobi" onclick="toggleHobi(this)">
-            <h2>Camping</h2>
-            <img src="kamp.jpg" alt="Camping">
-            <p>Kamp, benim için doğayla bütünleşme ve özgürlüğün tadını çıkarma yolunda bir kaçış ve tutkudur. 
-                Ormanın kucağında çadırımı kurmak, açık havada ateş başında oturmak, yıldızları izlemek, bana şehir hayatının karmaşasından uzaklaşma fırsatı verir. 
-                Kamp yapmak, sadece bedenimi dinlendirmekle kalmaz, aynı zamanda ruhumu da yeniler. 
-                Doğanın sesleri, kuş cıvıltıları ve hafif esen rüzgar, beni stresten arındırır ve içsel huzur bulmama yardımcı olur. 
-                Kamp ateşinin etrafında oturup dostlarla sohbet etmek, paylaşılan anılar ve kahkahalar, bu deneyimi daha da özel kılar. 
-                Kamp, benim için bir macera, keşif ve özgürlük alanıdır; her yeni kamp deneyimi, beni doğaya olan sevgimde bir adım daha ileri taşır.</p>
-        </div>
+    <div id="calisthenics" class="hobby-page">
+      <h2>Doing Calisthenics</h2>
+      <p> Vücut ağırlığıyla yapılan bu egzersizler, fiziksel gücümü artırmakla kalmayıp, 
+        aynı zamanda zihinsel dayanıklılığımı da geliştiriyor. 
+        Her antrenman, kendi bedenimle olan bağımı güçlendiriyor ve sınırlarımı zorlamama izin veriyor. 
+        Kalisteniks, sadece kasları değil, aynı zamanda denge, esneklik ve koordinasyonu da hedef alarak bütünlüklü bir fitness deneyimi sunuyor. 
+        Bu hobimde her yeni hareketi öğrenme süreci, sabır, disiplin ve kararlılık gerektirirken, bu özellikleri günlük yaşantıma da taşımama yardımcı oluyor. 
+        Kalisteniks, benim için sadece bedenimi güçlendiren bir egzersiz biçimi değil, 
+        aynı zamanda kendi sınırlarımı keşfetme ve aşma sürecinde beni motive eden bir yaşam felsefesidir.</p>
+      <img class="hobby-image" src="source/image/chalisthenics.jpeg" alt="Calisthenics Resmi">
+    </div>
 
-        <div class="hobi" onclick="toggleHobi(this)">
-            <h2>Playing the Kalimba</h2>
-            <img src="kalimba.jpg" alt="Playing the Kalimba">
-            <p>Kalimba çalmak, benim için ruhsal bir serenadın ve melodik bir seyahatin kapılarını aralamak anlamına geliyor. 
+    <div id="sudoku" class="hobby-page">
+      <h2>Solve Sudoku</h2>
+      <p>
+        Sudoku, zihinsel keskinliğimi artıran ve stresle baş etmeme yardımcı olan keyifli bir hobidir. 
+        Sayıları mantıklı bir şekilde yerleştirmek, hem problem çözme becerilerimi güçlendiriyor hem de odaklanmamı artırıyor. 
+        Ayrıca, bu oyun benim için bir tür meditasyon deneyimi, günlük hayatın karmaşasından uzaklaşma fırsatı sunuyor.</p>
+      <img class="hobby-image" src="source/image/sudoku.jpg" alt="Sudoku Resmi">
+    </div>
+
+    <div id="camping" class="hobby-page">
+      <h2>Camping</h2>
+      <p>Kamp, benim için doğayla bütünleşme ve özgürlüğün tadını çıkarma yolunda bir kaçış ve tutkudur. 
+        Ormanın kucağında çadırımı kurmak, açık havada ateş başında oturmak, yıldızları izlemek, bana şehir hayatının karmaşasından uzaklaşma fırsatı verir. 
+        Kamp yapmak, sadece bedenimi dinlendirmekle kalmaz, aynı zamanda ruhumu da yeniler. 
+        Doğanın sesleri, kuş cıvıltıları ve hafif esen rüzgar, beni stresten arındırır ve içsel huzur bulmama yardımcı olur. 
+        Kamp ateşinin etrafında oturup dostlarla sohbet etmek, paylaşılan anılar ve kahkahalar, bu deneyimi daha da özel kılar. 
+        Kamp, benim için bir macera, keşif ve özgürlük alanıdır; her yeni kamp deneyimi, beni doğaya olan sevgimde bir adım daha ileri taşır.</p>
+      <img class="hobby-image" src="source/image/kamp.jpg" alt="Camping Resmi">
+    </div>
+
+    <div id="kalimba" class="hobby-page">
+      <h2>Playing the Kalimba</h2>
+      <p>Kalimba çalmak, benim için ruhsal bir serenadın ve melodik bir seyahatin kapılarını aralamak anlamına geliyor. 
                 Bu küçük enstrümanın tınıları, parmaklarımın uçlarından yayılarak sakinleştirici bir ritüeli başlatıyor. 
                 Metal kalkanlar arasındaki tuşlara dokundukça, beni adeta bir başka dünyaya taşıyan, huzur veren bir melodi yaratma gücüne sahibim. 
                 Her bir nota, hissettiklerimi ifade etme ve duygusal bir bağ kurma fırsatı sunuyor. 
                 Kalimba, yaratıcılığımı keşfetme ve müziği duygularımla birleştirme konusunda benim için sınırsız bir oyun alanıdır. 
                 Bu enstrümanla zaman geçirmek, sadece melodik bir yolculuk değil, aynı zamanda içsel bir denge ve huzur bulma sürecidir. 
                 Kalimba çalarken, benzersiz sesleri ve ritimleri keşfetmek, ruhsal bir dinginlik sağlayarak hayatın güzelliklerini daha derinden hissetmeme olanak tanır.</p>
-        </div>
-    </section>
-    <script>
-        function toggleHobi(element) {
-            element.classList.toggle("open");
-        }
-    </script>
+      <img class="hobby-image" src="source/image/kalimba.jpg" alt="Kalimba Resmi">
+    </div>
+    <!-- İlgilendiğiniz diğer hobileri ekleyebilirsiniz -->
+  </div>
+
+  <script>
+    function showHobby(hobby) {
+      // Tüm hobby sayfalarını gizle
+      var hobbyPages = document.querySelectorAll('.hobby-page');
+      hobbyPages.forEach(function(page) {
+        page.classList.remove('active');
+      });
+
+      // Seçilen hobinin sayfasını göster
+      var selectedHobbyPage = document.getElementById(hobby);
+      selectedHobbyPage.classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
