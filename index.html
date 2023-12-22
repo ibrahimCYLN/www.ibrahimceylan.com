@@ -87,13 +87,9 @@
             bottom: 0;
             font-family: 'Bungee Shade', sans-serif;
         }
-        #downloadLink {
-            color: black; /* Metni siyah renkte göster */
-            text-decoration: underline; /* Altı çizgi ekleyebilirsiniz, isteğe bağlı */
-            cursor: pointer; /* Fare imlecini bir el imleci olarak göster */
-        }
-        a{
+        #download-cv{
             text-decoration: none;
+            color: #333;
         }
     </style>
 </head>
@@ -125,19 +121,6 @@
         </table>
     </div>
 
-    <footer ><a id="download-btn" href="source/document/ibrahim_CEYLAN_CV.pdf" download="ibrahim_CEYLAN_CV.pdf">DOWNLOAD CV</a></footer>
-    <script>
-        // Tıklama olayını dinle
-        document.getElementById('downloadLink').addEventListener('click', function() {
-            // İndirme bağlantısı oluştur
-            var downloadLink = document.createElement('a');
-            downloadLink.href = 'source/document/ibrahim_CEYLAN_CV.pdf'; // CV dosyasının yolu
-            downloadLink.download = 'ibrahim_CEYLAN_CV.pdf'; // İndirilen dosyanın adı
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-        });
-    </script>
-
+    <footer ><a id="download-cv" href="source/document/ibrahim_CEYLAN_CV.pdf" download="ibrahim_CEYLAN_CV.pdf">DOWNLOAD CV</a></footer>
 </body>
 </html>
