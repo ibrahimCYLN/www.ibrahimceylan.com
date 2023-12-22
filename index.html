@@ -92,6 +92,9 @@
             text-decoration: underline; /* Altı çizgi ekleyebilirsiniz, isteğe bağlı */
             cursor: pointer; /* Fare imlecini bir el imleci olarak göster */
         }
+        a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -122,7 +125,7 @@
         </table>
     </div>
 
-    <footer id="downloadLink">DOWNLOAD CV</footer>
+    <footer ><a id="download-btn" href="source/document/ibrahim_CEYLAN_CV.pdf" download="ibrahim_CEYLAN_CV.pdf">DOWNLOAD CV</a></footer>
     <script>
         // Tıklama olayını dinle
         document.getElementById('downloadLink').addEventListener('click', function() {
