@@ -57,6 +57,7 @@
 
         #contact-info p {
             text-align: justify;
+            margin-bottom: 0; /* Keep smile yazısından sonra gelen boşluğu kaldırmak için */
         }
 
         #social-icons {
@@ -72,6 +73,17 @@
             max-width: 50px;
             max-height: 50px;
         }
+
+        #profile-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+
+        #profile-image {
+            max-width: 50px; /* Profil resmi boyutunu isteğinize göre ayarlayabilirsiniz */
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -81,8 +93,13 @@
         <a href="AboutMe.html">ABOUT ME</a>
         <a href="HobiesPage.html">HOBIES</a>
     </nav>
+            
     <div id="content">
         <div id="contact-info">
+            <div id="profile-image-container">
+                <img id="profile-image" src="source/icon/profileimage.png" alt="profilePhoto">
+                <p>"A smile is a sign of happy heart" :)</p>
+            </div>
             <p>
                 Phone Number: +90 507 190 14 82 <br>
                 Address: SANCAKTEPE/İSTANBUL <br>
