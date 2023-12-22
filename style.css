@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    min-height: 100vh;
+}
+
+#header {
+    width: 100%;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Noto Serif Display', serif;
+}
+
+#content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+table {
+    color: #333;
+    width: 30%;
+    text-align: center;
+    font-size: large;
+    transition: background-color 0.7s ease;
+    font-family: 'Bungee Shade', sans-serif;
+}
+
+table td:hover {
+    background-color: #c5d9d0;
+    font-weight: bold;
+    font-family: 'Bungee Shade', sans-serif;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+img {
+    max-width: 30%;
+    max-height: 30%;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+    img {
+        max-width: 80%;
+        max-height: 80%;
+        order: -1;
+        margin-bottom: 20px;
+    }
+
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table {
+        width: 100%;
+    }
+    table tr {
+        margin-bottom: 20px;
+    }
+}
+
+footer {
+    width: 100%;
+    background-color: #c5d9d0;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    font-family: 'Bungee Shade', sans-serif;
+}
+
+#download-cv {
+    text-decoration: none;
+    color: #333;
+}
