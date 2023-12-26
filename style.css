@@ -17,6 +17,7 @@ nav {
 }
 
 nav a {
+    content: '';
     color: #eee;
     text-decoration: none;
     padding: 10px 20px;
@@ -31,12 +32,15 @@ nav a:hover {
 .navLogo{
     display: none;
 }
+a:hover {
+    text-decoration: underline;
+}
 @media (max-width: 600px) {
     nav{
         padding: 0%;
     }
     .navText {
-        font-size: 7px;
+        font-size: 10px;
     }
     .navLogo {
         display: block;
