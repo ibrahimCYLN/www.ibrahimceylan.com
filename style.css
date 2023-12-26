@@ -20,6 +20,7 @@ nav a {
     color: #eee;
     text-decoration: none;
     padding: 10px 20px;
+    text-align: center;
 }
 
 nav a:hover {
@@ -31,8 +32,11 @@ nav a:hover {
     display: none;
 }
 @media (max-width: 600px) {
+    nav{
+        padding: 0%;
+    }
     .navText {
-        display: none;
+        font-size: 7px;
     }
     .navLogo {
         display: block;
