@@ -5,15 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="source/icon/web.png">
+  <link rel="stylesheet" href="style.css">
   <title>Hobilerim</title>
   <style>
-    body {
-      font-family: 'Handlee', cursive;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
-
     #scrolling-box {
       display: flex;
       overflow-x: auto;
@@ -55,35 +49,29 @@
       margin-top: 10px;
       box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
     }
-    nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-        }
-
-        nav a {
-            color: #eee;
-            text-decoration: none;
-            padding: 10px 20px;
-        }
-
-        nav a:hover {
-            background-color: #c5d9d0;
-            color: #333;
-        }
   </style>
 </head>
 <body>
+  <header>
     <nav>
-        <a href="index.html">HOME</a>
-        <a href="ProjectsPage.html">PROJECTS</a>
-        <a href="AboutMe.html">ABOUT ME</a>
-        <a href="ContactPage.html">CONTACT</a>
+        <a href="index.html">
+            <img class="navLogo" src="source/icon/home.png" alt="index">
+            <span class="navText">HOME</span>
+        </a>
+        <a href="AboutMe.html">
+            <img class="navLogo" src="source/icon/me2.png" alt="index">
+            <span class="navText">ABOUT ME</span>
+        </a>
+        <a href="ProjectsPage.html">
+            <img class="navLogo" src="source/icon/project2.png" alt="index">
+            <span class="navText">PROJECTS</span>
+        </a>
+        <a href="ContactPage.html">
+            <img class="navLogo" src="source/icon/contact2.png" alt="index">
+            <span class="navText">CONTACT</span>
+        </a>
     </nav>
+</header>
 
   <div id="scrolling-box">
     <div class="hobby-box" onclick="showHobby('radio-theatre')">Radio Theatre</div>
@@ -98,7 +86,7 @@
   <div id="content">
     <div id="default-content" class="hobby-page active">
       <h2>Choose which hobby to learn about</h2>
-      <img class="hobby-image" src="source/icon/click.png" alt="Default Image">
+      <img class="hobby-image" src="source/icon/click2.png" alt="Default Image">
     </div>
 
 

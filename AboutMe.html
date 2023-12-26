@@ -5,37 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="source/icon/web.png">
+    <link rel="stylesheet" href="style.css">
     <title>About Me</title>
     <style>
-        body {
-            margin: 0;
-            background-color: #c5d9d0;
-            font-family: 'Handlee', cursive;
-            color: #333;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-            z-index: 2;
-        }
-
-        nav a {
-            color: #eee;
-            text-decoration: none;
-            padding: 10px 20px;
-        }
-
-        nav a:hover {
-            background-color: #c5d9d0;
-            color: #333;
-        }
-
         body > p {
             margin-top: 60px;
         }
@@ -126,12 +98,26 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">HOME</a>
-        <a href="ProjectsPage.html">PROJECTS</a>
-        <a href="HobiesPage.html">HOBIES</a>
-        <a href="ContactPage.html">CONTACT</a>
-    </nav>
+    <header>
+        <nav>
+            <a href="index.html">
+                <img class="navLogo" src="source/icon/home.png" alt="index">
+                <span class="navText">HOME</span>
+            </a>
+                        <a href="ProjectsPage.html">
+                <img class="navLogo" src="source/icon/project2.png" alt="index">
+                <span class="navText">PROJECTS</span>
+            </a>
+            <a href="HobiesPage.html">
+                <img class="navLogo" src="source/icon/hobies2.png" alt="index">
+                <span class="navText">HOBIES</span>
+            </a>
+            <a href="ContactPage.html">
+                <img class="navLogo" src="source/icon/contact2.png" alt="index">
+                <span class="navText">CONTACT</span>
+            </a>
+        </nav>
+    </header>
     <div id="content1">
         <img src="source/image/smile.jpg" alt="">
     </div>
