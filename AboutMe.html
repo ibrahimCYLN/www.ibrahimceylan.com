@@ -66,6 +66,7 @@
     margin-top: 3%;
     position: relative;
     z-index: 1;
+    img {max-width: 32px;}
 }
 
 #education-content::before {
@@ -94,6 +95,31 @@
                 z-index: 1;
             }
         
+    }
+    #scrolling-box {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+      background-color: #c5d9d0;
+      justify-content: center;
+    }
+
+    .hobby-box {
+      margin-top: 70px;
+      margin-right: 20px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .hobby-box img{
+        max-width: 32px;
+    }
+    table{
+        margin: auto;
+        text-align: center;
+    }
+    table img{
+        max-width: 64px;
     }
     </style>
 </head>
@@ -165,5 +191,20 @@
             , HTML codes and Adobe programs, and also received a business opening and mastery certificate.
         </p>
     </div>
+    <h3>My Knowledge Stronger About Those Codding</h3>
+    <table>
+        <tr>
+            <th><img src="source/icon/csharp.png" alt="index"></th>
+            <th><img src="source/icon/csharp.png" alt="index"></th>
+            <th><img src="source/icon/csharp.png" alt="index"></th>
+            <th><img src="source/icon/csharp.png" alt="index"></th>
+        </tr>
+        <tr>
+            <td><h3>C#</h3></td>
+            <td><h3>C#</h3></td>
+            <td><h3>C#</h3></td>
+            <td><h3>C#</h3></td>
+        </tr>
+    </table>
 </body>
 </html>
