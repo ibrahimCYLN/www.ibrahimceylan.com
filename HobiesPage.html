@@ -2,187 +2,362 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" type="image/png" href="source/icon/web.png">
-  <link rel="stylesheet" href="style.css">
-  <title>Hobilerim</title>
+  <title>Hobbies | İbrahim CEYLAN</title>
   <style>
-    #scrolling-box {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eee;
+      font-family: 'Handlee', cursive;
+      padding-bottom: 60px;
+    }
+
+    /* === KOYU NAVIGASYON - ESKİ TASARIM === */
+    header {
+      background: #1e293b;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f1f5f9;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      border-radius: 40px;
+    }
+
+    nav a:hover {
+      background: #334155;
+      transform: translateY(-2px);
+    }
+
+    .navLogo {
+      width: 22px;
+      height: 22px;
+      filter: brightness(0) invert(1);
+      display: none; /* Varsayılan olarak logo gizli - sadece mobilde görünecek */
+    }
+
+    .navText {
+      font-size: 0.9rem;
+    }
+
+    /* === LOGO SADECE MOBİLDE GÖRÜNSÜN === */
+    @media screen and (max-width: 768px) {
+      .navLogo {
+        display: inline-block; /* Mobilde logo görünür */
+      }
+      nav {
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+      .navText {
+        font-size: 0.7rem;
+      }
+    }
+
+    /* === INSTAGRAM TARZI STORY SATIRI === */
+    .stories-container {
+      max-width: 600px;
+      margin: 1rem auto 0;
+      padding: 0.8rem 1rem;
+      background: #eee;
       overflow-x: auto;
       white-space: nowrap;
-      padding: 10px;
-      background-color: #c5d9d0;
+      scrollbar-width: thin;
     }
 
-    .hobby-box {
-      margin-top: 70px;
-      margin-right: 20px;
-      padding: 10px;
-      border-radius: 5px;
+    .stories-wrapper {
+      display: inline-flex;
+      gap: 1rem;
+    }
+
+    .story-item {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
 
-    .hobby-box:hover {
-      background-color: #eee;
+    .story-ring {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #c5d9d0, #a3b9ae);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    #content {
-      padding: 20px;
-      text-align: center;
+    .story-inner {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
     }
 
-    .hobby-page {
-      display: none;
+    .story-name {
+      font-size: 0.7rem;
+      color: #1e293b;
+      font-weight: 500;
     }
 
-    .hobby-page.active {
+    /* === INSTAGRAM TARZI FEED === */
+    .ig-feed {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* FEED POST - HER HOBİ BİR GÖNDERİ */
+    .feed-post {
+      background: white;
+      margin-bottom: 12px;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* POST GÖRSELİ */
+    .post-image {
+      width: 100%;
+      background: #f0f0f0;
+    }
+
+    .post-image img {
+      width: 100%;
+      height: auto;
+      min-height: 350px;
+      object-fit: cover;
       display: block;
     }
 
-    .hobby-image {
-      max-width: 60%;
-      height: auto;
-      border-radius: 5px;
-      margin-top: 10px;
-      box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
+    /* AÇIKLAMA ALANI - TAM METİN */
+    .post-caption {
+      padding: 16px;
+      background: white;
     }
-    body{
-      background: #eee;
+
+    .post-caption h3 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .post-caption p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #333;
+      text-align: justify;
+    }
+
+    /* RESPONSIVE - Mobil için ekstra düzenlemeler */
+    @media screen and (max-width: 768px) {
+      .stories-container {
+        padding: 0.6rem 0.8rem;
+      }
+      .story-ring {
+        width: 56px;
+        height: 56px;
+      }
+      .story-inner {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      .post-image img {
+        min-height: 280px;
+      }
+      .post-caption {
+        padding: 14px;
+      }
+      .post-caption h3 {
+        font-size: 1.2rem;
+      }
+      .post-caption p {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .story-name {
+        font-size: 0.6rem;
+      }
+      .post-image img {
+        min-height: 240px;
+      }
+      .post-caption h3 {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- KOYU NAVIGASYON - ESKİ TASARIM -->
   <header>
     <nav>
-        <a href="index.html">
-            <img class="navLogo" src="source/icon/home.png" alt="index">
-            <span class="navText">HOME</span>
-        </a>
-        <a href="AboutMe.html">
-            <img class="navLogo" src="source/icon/me2.png" alt="index">
-            <span class="navText">ABOUT ME</span>
-        </a>
-        <a href="ProjectsPage.html">
-            <img class="navLogo" src="source/icon/project2.png" alt="index">
-            <span class="navText">PROJECTS</span>
-        </a>
-        <a href="ContactPage.html">
-            <img class="navLogo" src="source/icon/contact2.png" alt="index">
-            <span class="navText">CONTACT</span>
-        </a>
+      <a href="index.html">
+        <img class="navLogo" src="source/icon/home.png" alt="home">
+        <span class="navText">HOME</span>
+      </a>
+      <a href="AboutMe.html">
+        <img class="navLogo" src="source/icon/me2.png" alt="about">
+        <span class="navText">ABOUT ME</span>
+      </a>
+      <a href="ProjectsPage.html">
+        <img class="navLogo" src="source/icon/project2.png" alt="projects">
+        <span class="navText">PROJECTS</span>
+      </a>
+      <a href="ContactPage.html">
+        <img class="navLogo" src="source/icon/contact2.png" alt="contact">
+        <span class="navText">CONTACT</span>
+      </a>
     </nav>
-</header>
+  </header>
 
-  <div id="scrolling-box">
-    <div class="hobby-box" onclick="showHobby('radio-theatre')">Radio Theatre</div>
-    <div class="hobby-box" onclick="showHobby('graphic-design')">Graphic Design</div>
-    <div class="hobby-box" onclick="showHobby('calisthenics')">Doing Calisthenics</div>
-    <div class="hobby-box" onclick="showHobby('sudoku')">Solve Sudoku</div>
-    <div class="hobby-box" onclick="showHobby('camping')">Camping</div>
-    <div class="hobby-box" onclick="showHobby('kalimba')">Playing the Kalimba</div>
-    <!-- Added new hobbies -->
+  <!-- INSTAGRAM TARZI STORY SATIRI -->
+  <div class="stories-container">
+    <div class="stories-wrapper">
+      <div class="story-item" onclick="scrollToHobby('radio-theatre')">
+        <div class="story-ring">
+          <div class="story-inner">📻</div>
+        </div>
+        <span class="story-name">Radio</span>
+      </div>
+      <div class="story-item" onclick="scrollToHobby('graphic-design')">
+        <div class="story-ring">
+          <div class="story-inner">🎨</div>
+        </div>
+        <span class="story-name">Design</span>
+      </div>
+      <div class="story-item" onclick="scrollToHobby('calisthenics')">
+        <div class="story-ring">
+          <div class="story-inner">💪</div>
+        </div>
+        <span class="story-name">Calis.</span>
+      </div>
+      <div class="story-item" onclick="scrollToHobby('sudoku')">
+        <div class="story-ring">
+          <div class="story-inner">🧩</div>
+        </div>
+        <span class="story-name">Sudoku</span>
+      </div>
+      <div class="story-item" onclick="scrollToHobby('camping')">
+        <div class="story-ring">
+          <div class="story-inner">🏕️</div>
+        </div>
+        <span class="story-name">Camping</span>
+      </div>
+      <div class="story-item" onclick="scrollToHobby('kalimba')">
+        <div class="story-ring">
+          <div class="story-inner">🎵</div>
+        </div>
+        <span class="story-name">Kalimba</span>
+      </div>
+    </div>
   </div>
 
-  <div id="content">
-    <div id="default-content" class="hobby-page active">
-      <h2>Choose which hobby to learn about</h2>
-      <img class="hobby-image" src="source/icon/click2.png" alt="Default Image">
-    </div>
-
-
-  <div id="content">
-    <div id="radio-theatre" class="hobby-page">
-      <h2>Radio Theatre</h2>
-      <p>My hobby of listening to radio theater is a magical experience that takes me on a journey through time
-        . This art form, shaped by the power of sound
-        , allows me to visualize the emotions of the characters and the atmosphere of the story with my imagination
-        . The nostalgic sound effects of those old radio broadcasts, the music and the actors
-        ' voices transport me to another world and I find myself at a point where time stops. In a dark room
-        , when I close my eyes, I feel as if I am hidden in the story. This hobby of mine is not only fun
-        , but also an interaction that feeds my creativity and expands my imagination
-        . Radio theater helps me create a special bond that allows me to get lost in the magical world of sound and to adventure in different times and places..</p>
-      <img class="hobby-image" src="source/image/radyo.jpg" alt="Radio Theatre Resmi">
-    </div>
-
-    <div id="graphic-design" class="hobby-page">
-      <h2>Graphic Design</h2>
-      <p>Graphic design and Photoshop is a passionate hobby that opens doors to my creative world
-        . The way colors, forms and texts come together to create impressive visual communications fills me with deep satisfaction
-        . Thanks to Photoshop's extensive tools, I have the freedom to unleash my imagination on a digital canvas
-        . Each project becomes a work of art for me
-        , and the graphics I design give me the opportunity to express myself and create an emotional connection with the viewer
-        . Color palettes, typography choices and composition are all part of a process where every detail is carefully considered
-        . This hobby not only improves my technical skills
-        , but also deepens my aesthetic understanding and encourages me to constantly explore new design trends and methods
-        . Dealing with graphic design and Photoshop is for me an adventure of getting lost in a limitless world of art and expression and constantly reinventing myself.</p>
-      <img class="hobby-image" src="source/image/graphic.jpg" alt="Graphic Design Resmi">
-    </div>
-
-    <div id="calisthenics" class="hobby-page">
-      <h2>Doing Calisthenics</h2>
-      <p> These bodyweight exercises not only improve my physical strength, but also my mental endurance
-        . Each workout strengthens my connection with my own body and allows me to push my limits
-        . Kalisteniks offers a holistic fitness experience, targeting not only muscles but also balance
-        , flexibility and coordination. The process of learning each new movement in this hobby requires patience
-        , discipline and determination, and it helps me carry these qualities into my daily life
-        . For me, Kalisteniks is not only a form of exercise that strengthens my body
-        , but also a philosophy of life that motivates me in the process of discovering and overcoming my own limits.</p>
-      <img class="hobby-image" src="source/image/chalisthenics.jpeg" alt="Calisthenics Resmi">
-    </div>
-
-    <div id="sudoku" class="hobby-page">
-      <h2>Solve Sudoku</h2>
-      <p>
-        Sudoku is an enjoyable hobby that increases my mental acuity and helps me cope with stress
-        . Placing numbers in a logical way not only strengthens my problem-solving skills but also increases my focus
-        . Also, this game is a kind of meditation experience for me
-        , an opportunity to get away from the chaos of everyday life.</p>
-      <img class="hobby-image" src="source/image/sudoku.jpg" alt="Sudoku Resmi">
-    </div>
-
-    <div id="camping" class="hobby-page">
-      <h2>Camping</h2>
-      <p>For me, camping is an escape and a passion to integrate with nature and enjoy freedom
-        . Setting up my tent in the lap of the forest, sitting by the fire in the open air, watching the stars
-        , gives me the opportunity to get away from the chaos of city life. Camping not only rests my body but also renews my soul
-        . The sounds of nature, the chirping of birds and the gentle breeze help me to de-stress and find inner peace
-        . Sitting around the campfire, chatting with friends, sharing memories and laughter makes the experience even more special
-        . Camping is a space of adventure, discovery and freedom for me
-        ; each new camping experience takes me one step further in my love for nature.</p>
-      <img class="hobby-image" src="source/image/kamp.jpg" alt="Camping Resmi">
-    </div>
-
-    <div id="kalimba" class="hobby-page">
-      <h2>Playing the Kalimba</h2>
-      <p>For me, playing the kalimba means opening the doors to a spiritual serenade and a melodic journey
-        . The timbres of this small instrument spread from the tips of my fingers and start a calming ritual
-        . As I touch the keys between the metal shields, I have the power to create a soothing melody that transports me to another world
-        . Each note gives me the opportunity to express what I feel and create an emotional connection
-        . The Kalimba is a limitless playground for me to explore my creativity and combine music with my emotions
-        . Spending time with this instrument is not only a melodic journey, but also a process of finding inner balance and peace
-        . Exploring unique sounds and rhythms while playing the Kalimba provides a spiritual serenity
-        , allowing me to feel the beauty of life more deeply.</p>
-      <img class="hobby-image" src="source/image/kalimba.jpg" alt="Kalimba Resmi">
-    </div>
-    <!-- İlgilendiğiniz diğer hobileri ekleyebilirsiniz -->
-  </div>
+  <!-- INSTAGRAM FEED - HER HOBİ TAM AÇIKLAMALI -->
+  <div class="ig-feed" id="instagramFeed"></div>
 
   <script>
-    function showHobby(hobby) {
-      // Tüm hobby sayfalarını gizle
-      var hobbyPages = document.querySelectorAll('.hobby-page');
-      hobbyPages.forEach(function(page) {
-        page.classList.remove('active');
-      });
+    // HOBİ VERİLERİ - TAM AÇIKLAMALI
+    const hobbies = [
+      {
+        id: "radio-theatre",
+        title: "📻 Radio Theatre",
+        fullDesc: "My hobby of listening to radio theater is a magical experience that takes me on a journey through time. This art form, shaped by the power of sound, allows me to visualize the emotions of the characters and the atmosphere of the story with my imagination. The nostalgic sound effects of those old radio broadcasts, the music and the actors' voices transport me to another world and I find myself at a point where time stops. In a dark room, when I close my eyes, I feel as if I am hidden in the story. This hobby of mine is not only fun, but also an interaction that feeds my creativity and expands my imagination. Radio theater helps me create a special bond that allows me to get lost in the magical world of sound and to adventure in different times and places.",
+        image: "source/image/radyo.jpg"
+      },
+      {
+        id: "graphic-design",
+        title: "🎨 Graphic Design",
+        fullDesc: "Graphic design and Photoshop is a passionate hobby that opens doors to my creative world. The way colors, forms and texts come together to create impressive visual communications fills me with deep satisfaction. Thanks to Photoshop's extensive tools, I have the freedom to unleash my imagination on a digital canvas. Each project becomes a work of art for me, and the graphics I design give me the opportunity to express myself and create an emotional connection with the viewer. Color palettes, typography choices and composition are all part of a process where every detail is carefully considered. This hobby not only improves my technical skills, but also deepens my aesthetic understanding and encourages me to constantly explore new design trends and methods. Dealing with graphic design and Photoshop is for me an adventure of getting lost in a limitless world of art and expression and constantly reinventing myself.",
+        image: "source/image/graphic.jpg"
+      },
+      {
+        id: "calisthenics",
+        title: "💪 Calisthenics",
+        fullDesc: "These bodyweight exercises not only improve my physical strength, but also my mental endurance. Each workout strengthens my connection with my own body and allows me to push my limits. Calisthenics offers a holistic fitness experience, targeting not only muscles but also balance, flexibility and coordination. The process of learning each new movement in this hobby requires patience, discipline and determination, and it helps me carry these qualities into my daily life. For me, Calisthenics is not only a form of exercise that strengthens my body, but also a philosophy of life that motivates me in the process of discovering and overcoming my own limits.",
+        image: "source/image/chalisthenics.jpeg"
+      },
+      {
+        id: "sudoku",
+        title: "🧩 Sudoku",
+        fullDesc: "Sudoku is an enjoyable hobby that increases my mental acuity and helps me cope with stress. Placing numbers in a logical way not only strengthens my problem-solving skills but also increases my focus. Also, this game is a kind of meditation experience for me, an opportunity to get away from the chaos of everyday life.",
+        image: "source/image/sudoku.jpg"
+      },
+      {
+        id: "camping",
+        title: "🏕️ Camping",
+        fullDesc: "For me, camping is an escape and a passion to integrate with nature and enjoy freedom. Setting up my tent in the lap of the forest, sitting by the fire in the open air, watching the stars, gives me the opportunity to get away from the chaos of city life. Camping not only rests my body but also renews my soul. The sounds of nature, the chirping of birds and the gentle breeze help me to de-stress and find inner peace. Sitting around the campfire, chatting with friends, sharing memories and laughter makes the experience even more special. Camping is a space of adventure, discovery and freedom for me; each new camping experience takes me one step further in my love for nature.",
+        image: "source/image/kamp.jpg"
+      },
+      {
+        id: "kalimba",
+        title: "🎵 Kalimba",
+        fullDesc: "For me, playing the kalimba means opening the doors to a spiritual serenade and a melodic journey. The timbres of this small instrument spread from the tips of my fingers and start a calming ritual. As I touch the keys between the metal shields, I have the power to create a soothing melody that transports me to another world. Each note gives me the opportunity to express what I feel and create an emotional connection. The Kalimba is a limitless playground for me to explore my creativity and combine music with my emotions. Spending time with this instrument is not only a melodic journey, but also a process of finding inner balance and peace. Exploring unique sounds and rhythms while playing the Kalimba provides a spiritual serenity, allowing me to feel the beauty of life more deeply.",
+        image: "source/image/kalimba.jpg"
+      }
+    ];
 
-      // Seçilen hobinin sayfasını göster
-      var selectedHobbyPage = document.getElementById(hobby);
-      selectedHobbyPage.classList.add('active');
+    const feed = document.getElementById('instagramFeed');
+
+    hobbies.forEach((hobby) => {
+      const post = document.createElement('div');
+      post.className = 'feed-post';
+      post.setAttribute('id', `post-${hobby.id}`);
+      post.innerHTML = `
+        <div class="post-image">
+          <img src="${hobby.image}" alt="${hobby.title}" loading="lazy">
+        </div>
+        <div class="post-caption">
+          <h3>${hobby.title}</h3>
+          <p>${hobby.fullDesc}</p>
+        </div>
+      `;
+      feed.appendChild(post);
+    });
+
+    // STORY'YE TIKLAYINCA İLGİLİ GÖNDERİYE KAYDIR
+    function scrollToHobby(hobbyId) {
+      const postElement = document.getElementById(`post-${hobbyId}`);
+      if (postElement) {
+        postElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   </script>
-
 </body>
 </html>
