@@ -6,8 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="source/icon/web.png">
     <link rel="stylesheet" href="style.css">
-    <title>My Projects</title>
+    <title>My Projects | İbrahim CEYLAN</title>
     <style>
+        /* MEVCUT TASARIM AYNEN KORUNDU */
         section {
             max-width: 800px;
             margin: auto;
@@ -33,11 +34,15 @@
 
         h2 {
             color: #333;
+            font-size: 1.2rem;
         }
 
         .project p {
             color: #333;
             display: none;
+            margin-top: 10px;
+            line-height: 1.5;
+            text-align: justify;
         }
 
         .project:target p {
@@ -47,55 +52,96 @@
         .project:target a {
             pointer-events: none; /* Bağlantının tıklanabilirliğini kapat */
         }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 8px;
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .learn-more:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 600px) {
+            .project {
+                flex-direction: column;
+                text-align: center;
+            }
+            .project img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
             <a href="index.html">
-                <img class="navLogo" src="source/icon/home.png" alt="index">
+                <img class="navLogo" src="source/icon/home.png" alt="home">
                 <span class="navText">HOME</span>
             </a>
             <a href="AboutMe.html">
-                <img class="navLogo" src="source/icon/me2.png" alt="index">
+                <img class="navLogo" src="source/icon/me2.png" alt="about me">
                 <span class="navText">ABOUT ME</span>
             </a>
             <a href="HobiesPage.html">
-                <img class="navLogo" src="source/icon/hobies2.png" alt="index">
+                <img class="navLogo" src="source/icon/hobies2.png" alt="hobbies">
                 <span class="navText">HOBIES</span>
             </a>
             <a href="ContactPage.html">
-                <img class="navLogo" src="source/icon/contact2.png" alt="index">
+                <img class="navLogo" src="source/icon/contact2.png" alt="contact">
                 <span class="navText">CONTACT</span>
             </a>
         </nav>
     </header>
 
     <section>
+        <!-- PROJE 1 - TÜBİTAK -->
         <div class="project" id="project1">
-            <img src="source/icon/tubitak.png" alt="Project 1 Image">
+            <img src="source/icon/tubitak.png" alt="TUBITAK Project">
             <div>
-                <h2>TÜBİTAK 2209-A, CONVEYOR BELT MODERNIZATION PROJECT</h2>
-                <p>Short text about the project</p>
-                <a href="#project1">Learn More</a>
+                <h2>TÜBİTAK 2209-A - Conveyor Belt Modernization Project</h2>
+                <p>
+                    I developed various mechanical and software solutions using the Arduino development environment. 
+                    The project focused on optimizing industrial conveyor belt systems through sensor integration, 
+                    automation logic, and real-time monitoring. It improved efficiency and reduced manual intervention 
+                    in production lines.
+                </p>
+                <a href="#project1" class="learn-more">Learn More</a>
             </div>
         </div>
 
+        <!-- PROJE 2 - ROKET YARIŞMASI -->
         <div class="project" id="project2">
-            <img src="source/icon/marasell.png" alt="Project 2 Image">
+            <img src="source/icon/marasell.png" alt="Rocket Competition Project">
             <div>
-                <h2>MEDIUM ALTITUDE ROCKET COMPETITION AVIONIC SYSTEM DESIGN</h2>
-                <p>Short text about the project</p>
-                <a href="#project2">Learn More</a>
+                <h2>Medium Altitude Rocket Competition - Avionic System Design</h2>
+                <p>
+                    I designed a ground station application using C# language. Real-time flight data was collected 
+                    from various sensors (altimeter, IMU, GPS) connected to an Arduino onboard system. 
+                    The data was visualized and logged for post-flight analysis. This project enhanced my skills 
+                    in telemetry, embedded systems, and real-time data processing.
+                </p>
+                <a href="#project2" class="learn-more">Learn More</a>
             </div>
         </div>
 
+        <!-- PROJE 3 - IoT SULAMA SİSTEMİ -->
         <div class="project" id="project3">
-            <img src="source/icon/iot.png" alt="Project 3 Image">
+            <img src="source/icon/iot.png" alt="IoT Irrigation System">
             <div>
-                <h2>IOT AUTOMATIC IRRIGATION SYSTEM</h2>
-                <p>Short text about the project</p>
-                <a href="#project3">Learn More</a>
+                <h2>IoT Automatic Irrigation System</h2>
+                <p>
+                    This project was designed using the Google Firebase platform. Soil moisture sensors connected 
+                    to an ESP8266 module sent data to the cloud. Based on predefined thresholds, the system 
+                    automatically activated a water pump. Users could also monitor and control the system remotely 
+                    via a web interface. This project demonstrated cloud integration and IoT principles.
+                </p>
+                <a href="#project3" class="learn-more">Learn More</a>
             </div>
         </div>
     </section>
